@@ -15,7 +15,7 @@ function init() {
     x: 30,
     y: 10,
     z: 40,
-    wireframe: false
+    wireframe: false,
   };
 
   // シーン作成
@@ -163,11 +163,12 @@ function init() {
     theta = (theta + 0.01) % (2 * Math.PI);
     car.position.x = radius * Math.cos(theta);
     car.position.z = radius * Math.sin(theta);
-    car.rotation.y -= 0.01;
+    car.rotation.y = car.rotation.y - 0.01;
 
     car.children.forEach( (mesh) => {
       mesh.material.wireframe = param.wireframe;
     });
+
     requestAnimationFrame(render); //アニメーション準備
     renderer.render(scene, camera);
   }
